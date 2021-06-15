@@ -36,7 +36,7 @@ require __DIR__."/essence.php";
 | `maxRedirects(int $max)`                                                     | Máximo de redirects em uma request                    |
 | `proxy(string $proxy, string $proxyusr = "root", string $proxypss = "root")` | Adiciona proxy (HTTP/HTTPS)                           |
 
-No final de request usar:
+No final de cada request usar:
 
 | Função                   |                                                             |
 |--------------------------|-------------------------------------------------------------|
