@@ -4,7 +4,7 @@ class essence {
     const CONNECT_TIMEOUT = 30;
 
 	protected $url;
-	protected $fields; //POST Fields
+	protected $fields; //POST FIELDS
 	protected $header; //HEADER
 	protected $connect = true; //CONNECTION TIME OUT ERRORS
 	protected $cookies = false; //GENERATE COOKIES FILE
@@ -15,16 +15,14 @@ class essence {
 
 	protected $verifySsl = false; //VERIFY SSL
 
-	protected $resolve;
-	protected $ipv4 = false;
-	protected $emptyencoding = false;
-	protected $verbose;
+	protected $resolve; //RESOLVE DOMAIN
+	protected $ipv4 = false; //IPV4
+	protected $emptyencoding = false; //NULL ENCODING
+	protected $verbose; //VERBOSE
 
-	protected $maxRedirects = 3;
+	protected $maxRedirects = 3; //MAX REDIRECTS
 
-	public function __construct(string $link) {
-		$this->url = $link;
-	}
+	public function __construct(string $link) { $this->url = $link; }
 
 	public function header(array $header = []) {
 		$this->header = $header;
@@ -86,28 +84,28 @@ class essence {
 		curl_setopt($ch, CURLOPT_URL, $this->url);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, ($this->header == true)?$this->header:[]);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_MAXREDIRS, $this->maxRedirects);
+        	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+       		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        	curl_setopt($ch, CURLOPT_MAXREDIRS, $this->maxRedirects);
 		if(isset($this->connect)) {
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, self::CURL_TIMEOUT);
-            curl_setopt($ch, CURLOPT_LOW_SPEED_LIMIT, 0);
-            curl_setopt($ch, CURLOPT_TIMEOUT, self::CURL_TIMEOUT);
+            		curl_setopt($ch, CURLOPT_LOW_SPEED_LIMIT, 0);
+            		curl_setopt($ch, CURLOPT_TIMEOUT, self::CURL_TIMEOUT);
 		}
 		if(isset($this->cookies)) {
 			curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookies.txt');
-            curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookies.txt');
+            		curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookies.txt');
 		}
 		if(isset($this->proxy)) {
 			curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
-            curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 0);
-            if(isset($this->proxyusr) && isset($this->proxypss)) {
-            	curl_setopt($ch, CURLOPT_PROXYUSERPWD, $this->proxyusr.":".$this->proxypss);
-            }
+            		curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 0);
+		        if(isset($this->proxyusr) && isset($this->proxypss)) {
+				curl_setopt($ch, CURLOPT_PROXYUSERPWD, $this->proxyusr.":".$this->proxypss);
+		        }
 		}
 		if(isset($this->verifySsl)) {
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 		}
 		if(isset($this->resolve)) {
 			curl_setopt($ch, CURLOPT_RESOLVE, $this->resolve);
@@ -137,28 +135,28 @@ class essence {
 		curl_setopt($ch, CURLOPT_URL, $this->url);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, ($this->header == true)?$this->header:[]);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_MAXREDIRS, $this->maxRedirects);
+        	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        	curl_setopt($ch, CURLOPT_MAXREDIRS, $this->maxRedirects);
 		if(isset($this->connect)) {
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, self::CURL_TIMEOUT);
-            curl_setopt($ch, CURLOPT_LOW_SPEED_LIMIT, 0);
-            curl_setopt($ch, CURLOPT_TIMEOUT, self::CURL_TIMEOUT);
+            		curl_setopt($ch, CURLOPT_LOW_SPEED_LIMIT, 0);
+            		curl_setopt($ch, CURLOPT_TIMEOUT, self::CURL_TIMEOUT);
 		}
 		if(isset($this->cookies)) {
 			curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookies.txt');
-            curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookies.txt');
+            		curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookies.txt');
 		}
 		if(isset($this->proxy)) {
 			curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
-            curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 0);
-            if(isset($this->proxyusr) && isset($this->proxypss)) {
-            	curl_setopt($ch, CURLOPT_PROXYUSERPWD, $this->proxyusr.":".$this->proxypss);
-            }
+            		curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 0);
+			if(isset($this->proxyusr) && isset($this->proxypss)) {
+				curl_setopt($ch, CURLOPT_PROXYUSERPWD, $this->proxyusr.":".$this->proxypss);
+			}
 		}
 		if(isset($this->verifySsl)) {
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 		}
 		if(isset($this->resolve)) {
 			curl_setopt($ch, CURLOPT_RESOLVE, $this->resolve);
