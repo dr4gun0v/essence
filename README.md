@@ -9,6 +9,7 @@
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
 <img src="ESSENCE.png" alt="exemplo imagem">
+
 > Essa lib foi feita com o intuito de facilitar a criação de requests com o php sem necessitar usar o curl nativo, criado especialmente para requests one-line.
 
 ## ☕ Usando o Essence
