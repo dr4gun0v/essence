@@ -1,7 +1,7 @@
 <?php
 class essence {
 	const CURL_TIMEOUT = 3600;
-    const CONNECT_TIMEOUT = 30;
+        const CONNECT_TIMEOUT = 30;
 
 	protected $url;
 	protected $fields; //POST FIELDS
